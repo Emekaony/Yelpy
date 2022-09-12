@@ -43,11 +43,11 @@ struct API {
                 print(data)
                 
                 // 1. Convert JSON response into dictionary
-                let dictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                
-                
-                
-                return completion([[:]])
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                // 2. Grab the businesses data and convert it into an array of dictionaries for each restaurant
+                let restaurants = dataDictionary["businesses"] as! [[String: Any]]
+                // 3. completion is an escaping method which allows the data to be used outside of the closure
+                return completion(restaurants)
                 
                 }
             }
