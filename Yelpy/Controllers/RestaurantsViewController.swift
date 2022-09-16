@@ -28,6 +28,8 @@ class RestaurantsViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.dataSource = self
         
         tableView.rowHeight = 150
+        // we call the API as soon as the view loads
+        // there must be a much better way to do this, maybe just before the view loads
         getAPIData()
     }
     
